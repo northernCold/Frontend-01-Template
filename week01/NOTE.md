@@ -22,7 +22,45 @@ html标准 whatwg w3.org
 css标准 w3.org
 js标准： ecma-international
 
+##### entity
 
+https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
+
+在whatwg中将*entity*称为*character reference name*, 共有**2231**个。
+
+https://www.w3.org/TR/2014/REC-xml-entity-names-20140410/
+
+在w3中将entity分了29种大类，一共1574个。
+
+isobox
+isocyr1
+isocyr2
+isodia
+isolat1
+isolat2
+isonum
+isopub
+isoamsa
+isoamsb
+isoamsc
+isoamsn
+isoamso
+isoamsr
+isogrk1
+isogrk2
+isogrk3
+isogrk4
+isomfrk
+isomopf
+isomscr
+isotech
+mmlextra
+mmlalias
+xhtml1-lat1
+xhtml1-special
+xhtml1-symbol
+html5-uppercase
+predefined
 
 ### 总结
 
