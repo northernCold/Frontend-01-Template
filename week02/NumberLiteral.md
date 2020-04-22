@@ -64,6 +64,6 @@ NonOctalDecimalIntegerLiteral = 0|[89]\d+
 
 在/type/number.js中实现了在**严格模式下**正则能匹配所有Number的直接量
 
-在/type下 执行`npm run test`，可以执行number.js的测试用例
+在/type下 执行`npm run test:number`，可以执行number.js的测试用例
 
 参考：ecma-262 10th

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test:number": "mocha ./test/number.test.js",
+    "test:utf8": "mocha ./test/utf-8_encode.test.js"
   },
   "keywords": [],
   "author": "",

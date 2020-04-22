@@ -64,6 +64,11 @@ L = (c-0x10000) % 0x400+0xDC00
 
 两者的关系简单说，就是UTF-16取代了UCS-2，或者说UCS-2整合进了UTF-16。所以，现在只有UTF-16，没有UCS-2
 
+#### 实现 UTF-8 encode
+
+根据以上的知识，实现在`/type/utf-8_encode.js`
+
+执行测试用例在`/type`下，现在下载好依赖`npm i`, 然后再在`npm run test:utf8`
 
 
 参考：
@@ -73,4 +78,12 @@ L = (c-0x10000) % 0x400+0xDC00
 [字符编码笔记：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
 [通过javascript进行UTF-8编码](https://segmentfault.com/a/1190000005794963#item-1)
+
+https://segmentfault.com/a/1190000005794963
+
+http://www.huangwenchao.com.cn/2015/09/javascript-utf8-encoding.html
+
+https://gist.github.com/pascaldekloe/62546103a1576803dade9269ccf76330
+
+JavaScript是什么编码的 https://mathiasbynens.be/notes/javascript-encoding
 
