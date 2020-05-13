@@ -123,6 +123,7 @@ let id = 1;
     return t[index];
   }, data)
 })
+
 console.log(map.size)
 console.log(data)
 
@@ -201,7 +202,20 @@ graph.node(function(node) {
     },
   };
 });
-
+// graph.edge((edge,a,b) => {
+//   console.log(edge)
+//   const sourceLabel = edge.source.defaultCfg.model.label;
+//   const targetLabel = edge.target.defaultCfg.model.label;
+//   console.log(sourceLabel, targetLabel) 
+//   return {
+//     id: edge.id,
+//     label: `${sourceLabel}.${targetLabel}`,
+//     type: 'cubic-horizontal',
+//     style: {
+//       stroke: 'green',
+//     },
+//   };
+// });
 graph.data(data);
 graph.render();
 graph.fitView();
