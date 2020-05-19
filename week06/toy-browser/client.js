@@ -1,4 +1,6 @@
 const net = require('net');
+const parser = require('./parser');
+const bfs = require("./bfs");
 
 class Request {
   constructor(options) {
@@ -201,5 +203,7 @@ void async function () {
       }
     })
   let response = await request.send();
-  console.log(response)
+  // console.log(response)
+  let dom = parser.parseHTML(response.body);
+  console.log(bfs(dom))
 }()
