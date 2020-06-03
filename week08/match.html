@@ -1,13 +1,3 @@
-# 每周总结可以写在这里
-
-### match
-
-实现了
- - 简单选择中的  类型选择器(type)、类选择器、id选择器、*、
- - 以上简单选择器相互组合的复合选择器
- - 复杂选择器 " ",">","+","~"
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +26,7 @@
   </div>
 </body>
 <script>
-  // 将每个复合选择器转化为一个都是简单选择器的对象
+  // 
   function resovleSimpleSelectorSequence(selector) {
     const ident = "[a-z-A-Z0-9]+";
     const type = new RegExp(ident, "g");
@@ -67,7 +57,6 @@
     return simpleSelector;
   }
 
-  // 简单选择器与dom匹配
   function matchSimple(selector, element) {
     for(let key in selector) {
       // type 或者 universal 一般只有一个
@@ -95,7 +84,6 @@
     }
   }
 
-  // 处理“ ”， 遍历element元素与selector匹配
   function resovleDescendant(selector, element) {
     const stack = [element];
     let next, pre, connector;
@@ -122,8 +110,6 @@
     };
     return false;
   };
-
-  // 处理“>”, 循环element的children属性
   function resovleChild(selector, element) {
     let next, pre, connector;
     selector.match(/([^+~ >]+)(?:\s*([+~ >])\s*)?(.*)/);
@@ -149,7 +135,7 @@
     return false;
   };
 
-  // 处理“+” 寻找element的第一个子元素
+  // 处理 +
   function resovleNextSibling(selector, element) {
     let next, pre, connector;
     selector.match(/([^+~ >]+)(?:\s*([+~ >])\s*)?(.*)/);
@@ -173,7 +159,6 @@
     return false;
   };
 
-  // 处理“~”  寻找element的之后的兄弟元素
   function resovleSubsequentSibling(selector, element) {
     let next, pre, connector;
     selector.match(/([^+~ >]+)(?:\s*([+~ >])\s*)?(.*)/);
@@ -202,7 +187,6 @@
 
 
   function match(selector, element) {
-    // 刚开始可以看做 “* [selector]”
     ` ${selector}`.match(/([^+~ >]*)(?:\s*([+~ >])\s*)?(.*)/);
     pre = RegExp.$1;
     connector = RegExp.$2;
@@ -212,62 +196,10 @@
     return isOk;
   }
 
-  match("div#nc.abc #email>a", document.getElementById("href")); // true
-  match("body section.module#book article#en.nature p.title>#logo", document.getElementById("logo"));  // true
-  match("body p.title>#logo", document.getElementById("logo")); // true
-  match("#href~#port", document.getElementById("port")); // true
-  match("#email+#href", document.getElementById("port")); // true
+  match("div#nc.abc #email>a", document.getElementById("href"));
+  match("body section.module#book article#en.nature p.title>#logo", document.getElementById("logo"));
+  match("body p.title>#logo", document.getElementById("logo"));
+  match("#href~#port", document.getElementById("port"));
+  match("#email+#href", document.getElementById("port"));
 </script>
 </html>
-```
-
-### render
-
-使用`images`node包把布局好的元素绘制出来。
-
-```html
-`<html>
-<head>
-    <style>
-.p {
-    display: inline-flex;
-    justify-content: center;
-    width: 800px;
-    background-color: rgb(255,255,255);
-}
-
-.p div {
-    background-color: rgb(255,255,255);
-    width: 100px;
-    height: 100px;
-}
-.p .c1 {
-    background-color: rgb(123,1,52);
-}
-.p .c2 {
-    background-color: rgb(123,1,1);
-}
-.p .c3 {
-    background-color: rgb(2,1,52);
-}
-.p .c4 {
-    background-color: rgb(32,1,52);
-}
-    </style>
-</head>
-<body>
-    <div class="p">
-        <div class="c1"></div>
-        <div class="c2"></div>
-        <div class="c3"></div>
-        <div class="c4"></div>
-    </div>
-</body>
-</html>`
-```
-
-
-
-结果：
-
-![render](./toy-browser/viewport.jpg)
