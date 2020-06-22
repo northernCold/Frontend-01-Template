@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root {
+      margin: auto;
+      width: 500px;
+    }
+    .round {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+    }
+    .red {
+      background: red;
+    }
+    .yellow {
+      background: yellow;
+    }
+    .green {
+      background: green;
+    }
+    .dark {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="counter">0</div>
+  <div id="root">
+    <div class="red round"></div>
+    <div class="yellow round"></div>
+    <div class="green round"></div>
+  </div>
+  <script>
+    const change = function (color) {
+      ['red', 'yellow', 'green'].forEach(v => {
+        if (color === v) {
+          document.querySelector(`.${v}`).style.display = "block";
+        } else {
+          document.querySelector(`.${v}`).style.display = "none";
+        }
+      })
+    }
+    const red = new Promise(resolve => {
+      
+      setTimeout(() => {
+        resolve();
+      }, 5000)
+    })
+    const yellow = new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 2000)
+    })
+    const green = new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 10000)
+    })
+    async function run() {
+      var c = 0;
+      setInterval(() => {
+        document.querySelector("#counter").innerHTML = c++;
+      }, 1000);
+      change('red')
+      await red;
+      change('yellow')
+      await yellow;
+      change('green')
+
+      await green;
+    }
+    run().then()
+  </script>
+</body>
+</html>
