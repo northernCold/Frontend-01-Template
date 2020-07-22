@@ -25,7 +25,7 @@ export function createElement(Cls, attributes, ...children) {
   }
 
   visit(children)
-
+  console.log(o)
   return o;
 
 }
@@ -38,10 +38,6 @@ export class Wrapper {
   }
 
   setAttribute(name, value) {
-    if (name === "onclick") {
-      this.root.addEventListener("click", value);
-      return;
-    }
     this.root.setAttribute(name, value);
   }
 

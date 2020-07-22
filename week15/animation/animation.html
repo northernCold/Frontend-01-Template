@@ -1,0 +1,42 @@
+<style>
+  .el {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+  }
+
+  .el2 {
+    /* transition: transform ease 1s; */
+  }
+</style>
+<div class="el el1"></div>
+<div class="el el2"></div>
+<div class="el el3"></div>
+<button class="pause">pause</button>
+<button class="resume">resume</button>
+<button class="add">add</button>
+<script type="module">
+  import { Timeline, Animation, ColorAnimation } from "./animation.js";
+  import { cubicBezier} from "./cubicBezier.js";
+  let ease = cubicBezier(.25,.1,.25,1)
+  let el1 = document.querySelector(".el1");
+  let el2 = document.querySelector(".el2");
+  let el3 = document.querySelector(".el3");
+  let tl = new Timeline;
+
+  let linear = t => t;
+  tl.add(new Animation(el1.style, "transform",0, 200, 5000, 0, linear, v => `translateX(${v}px)`));
+  tl.add(new ColorAnimation(el1.style, "backgroundColor", {r:0, g:0, b:0, a:1}, {r:255, g:0, b:0, a:1}, 5000, 0, linear));
+  tl.start();
+  
+  // el2.style.transform = "translateX(200px)"
+  document.querySelector(".pause").addEventListener("click", () => {
+    tl.pause();
+  })
+  document.querySelector(".resume").addEventListener("click", () => {
+    tl.resume();
+  })
+  document.querySelector(".add").addEventListener("click", () => {
+    tl.add(new Animation(el2.style, "transform", v => `translateX(${v}px)`,0, 200, 5000, 0, linear), 0);
+  })
+</script>
