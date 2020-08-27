@@ -1,0 +1,75 @@
+https://github.com/login/oauth/authorize?client_id=Iv1.8f9d11057784afa8&redirect_uri=http%3A%2F%2Flocalhost&state=123
+
+1e9b2716b0d5aa86b03d
+
+let code = "600833d2d0984055d106";
+let state = 123;
+let client_secret = "b27ba151be0c76a540f70882e632cea5daea6de6";
+let client_id = "Iv1.8f9d11057784afa8";
+let redirect_uri = encodeURIComponent("http://localhost");
+
+let params = `code=${code}&state=${state}&client_secret=${client_secret}&client_id=${client_id}&redirect_uri=${redirect_uri}`
+let xhr = new XMLHttpRequest;
+
+xhr.open("POST", `https://github.com/login/oauth/access_token?${params}`);
+
+xhr.send(null);
+
+xhr.addEventListener("readystatechange", function (event) {
+  if (xhr.readyState === 4) {
+    console.log(event.respnseText);
+  }
+})
+
+access_token=169441bf0c642b6a47ad2db6baa00870bbebc7b8
+
+// ------------------------------
+let access_token = "169441bf0c642b6a47ad2db6baa00870bbebc7b8"
+
+let xhr = new XMLHttpRequest;
+
+xhr.open("GET", `https://api.github.com/user`);
+
+xhr.setRequestHeader(`Authorization`, `token ${access_token}`)
+xhr.send(null);
+
+xhr.addEventListener("readystatechange", function (event) {
+  if (xhr.readyState === 4) {
+    console.log(event.responseText);
+  }
+})
+  
+avatar_url: "https://avatars2.githubusercontent.com/u/20768666?v=4"
+bio: null
+blog: ""
+company: null
+created_at: "2016-08-01T08:45:57Z"
+email: null
+events_url: "https://api.github.com/users/northernCold/events{/privacy}"
+followers: 0
+followers_url: "https://api.github.com/users/northernCold/followers"
+following: 1
+following_url: "https://api.github.com/users/northernCold/following{/other_user}"
+gists_url: "https://api.github.com/users/northernCold/gists{/gist_id}"
+gravatar_id: ""
+hireable: null
+html_url: "https://github.com/northernCold"
+id: 20768666
+location: null
+login: "northernCold"
+name: null
+node_id: "MDQ6VXNlcjIwNzY4NjY2"
+organizations_url: "https://api.github.com/users/northernCold/orgs"
+public_gists: 0
+public_repos: 9
+received_events_url: "https://api.github.com/users/northernCold/received_events"
+repos_url: "https://api.github.com/users/northernCold/repos"
+site_admin: false
+starred_url: "https://api.github.com/users/northernCold/starred{/owner}{/repo}"
+subscriptions_url: "https://api.github.com/users/northernCold/subscriptions"
+twitter_username: null
+type: "User"
+updated_at: "2020-08-26T11:14:31Z"
+url: "https://api.github.com/users/northernCold"
+
+// 激活浏览器   cmd /c start <url>

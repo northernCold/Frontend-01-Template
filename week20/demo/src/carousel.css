@@ -1,0 +1,21 @@
+.carousel {
+  display: flex;
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  white-space: nowrap;
+  outline: 1px solid blue;
+  overflow: hidden;
+}
+
+.carousel img {
+  font-display: inline-block;
+  width: 500px;
+  height: 300px;
+  will-change: trandform;
+  /* transition: transform ease o.5s; */
+}
+
+body {
+  background-color: blue;
+}
